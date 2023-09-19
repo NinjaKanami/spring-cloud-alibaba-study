@@ -1,6 +1,7 @@
 package com.example.nacosconsumer01.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -25,15 +26,18 @@ public class NacosConsumerController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    @Value("${spring.application.name}")
+    private String appName;
+
     @RequestMapping("/consumer")
     public String consumer(){
         String url = "http://localhost:8080/provider/"+"consumer";
 
         ServiceInstance serviceInstance = loadBalancerClient.choose("service-provider");
-        String url1 = String.format("http://%s:%s/provider/%s",serviceInstance.getHost(),serviceInstance.getPort(),"consumer");
+        String url1 = String.format("http://%s:%s/provider/%s",serviceInstance.getHost(),serviceInstance.getPort(),appName);
         System.out.println(restTemplate.getForObject(url1,String.class));
 
-        return restTemplate.getForObject(url, String.class);
+        return restTemplate.getForObject(url1, String.class);
 
         /*return "consumer";*/
     }
@@ -60,7 +64,6 @@ public class NacosConsumerController {
                 maps.add(map);
             }
         }
-
         return maps;
     }
 

@@ -6,12 +6,12 @@ spring:
   cloud:
     nacos:
       discovery:
+        username: nacos
         password: nacos
         #单机
         #server-addr: 127.0.0.1:8848
-        #集群
+        #集群 可用于注册的Nacos，只能连上其中一个，但集群间的数据会同步 AP模式 Distro一致性协议
         server-addr: 127.0.0.1:8847,127.0.0.1:8849,127.0.0.1:8851
-        username: nacos
         #是否临时实例
         ephemeral: true
         #若注册为非临时实例 无法正常删除
@@ -24,3 +24,9 @@ spring:
         #        -d 'username=nacos' \
         #        -d 'password=nacos' \
         #        -X DELETE 'http://127.0.0.1:8848/nacos/v2/ns/instance'
+
+        #命名空间
+        namespace: b646a978-dcb7-433f-b140-be9e91a87dc3
+
+        #组
+        group: MY_GROUP
