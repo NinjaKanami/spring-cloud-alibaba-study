@@ -7,7 +7,10 @@ spring:
     nacos:
       discovery:
         password: nacos
-        server-addr: 127.0.0.1:8848
+        #单机
+        #server-addr: 127.0.0.1:8848
+        #集群
+        server-addr: 127.0.0.1:8847,127.0.0.1:8849,127.0.0.1:8851
         username: nacos
         #是否临时实例
         ephemeral: true
