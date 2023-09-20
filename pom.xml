@@ -10,6 +10,7 @@
     <modules>
         <module>nacos-provider01</module>
         <module>nacos-consumer01</module>
+        <module>provider-nacos-config01</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
