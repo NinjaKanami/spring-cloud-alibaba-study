@@ -3,7 +3,14 @@ server:
 
 spring:
     application:
-        name: service-provider-local
+        #服务名 但是加载到远程服务后会被远程的覆盖掉
+        #name: service-provider-local
+        name: provider-config
+
+    #配置环境 可根据不同环境获取不同配置
+    profiles:
+        active: dev
+
     cloud:
         nacos:
             config:
@@ -11,7 +18,22 @@ spring:
                 password: nacos
                 server-addr: 127.0.0.1:8848
                 file-extension: yml
+                group: MY_GROUP
+
+                #同一个group 中的不同服务可以共享以下“共享配置"
+                shared-configs[0]:
+                    data-id: shared.yml
+                    refresh: true
+
+                #不同group 中的不同服务可以共享以下”扩展配置"
+                extension-configs[0]:
+                    data-id: extension.yml
+                    refresh: true
 
 
+
+    #远程配置文件的这里不生效 不会出现加载远程配置文件后再加载远程
     config:
-        import: optional:nacos:provider-config-remote
+        #可使用${spring.application.name}-${profile}.${file-extension}
+        import: optional:nacos:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+        #import: optional:nacos:provider-config-remote
