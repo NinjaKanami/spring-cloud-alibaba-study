@@ -1,11 +1,11 @@
 server:
-    port: 8080
+    port: 8081
 
 spring:
     application:
         #服务名 但是加载到远程服务后会被远程的覆盖掉
         #name: service-provider-local
-        name: provider-config
+        name: consumer-config
 
     #配置环境 可根据不同环境获取不同配置
     profiles:
@@ -18,7 +18,7 @@ spring:
                 password: nacos
                 server-addr: 127.0.0.1:8848
                 file-extension: yml
-                group: MY_GROUP
+                #group: MY_GROUP
 
                 #同一个group 中的不同服务可以共享以下“共享配置"
                 shared-configs[0]:

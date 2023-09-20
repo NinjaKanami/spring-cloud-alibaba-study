@@ -10,7 +10,8 @@
     <modules>
         <module>nacos-provider01</module>
         <module>nacos-consumer01</module>
-        <module>provider-nacos-config01</module>
+        <module>nacos-config-provider01</module>
+        <module>nacos-config-consumer01</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
@@ -30,6 +31,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
