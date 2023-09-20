@@ -13,6 +13,6 @@ public class NacosProviderController {
 
     @RequestMapping("/provider/{consumer}")
     public String nacosProvider(@PathVariable String consumer) {
-        return "nacosProvider:"+ port +"：Hello!" + consumer;
+        return "TEstnacosProvider:"+ port +"：Hello!" + consumer;
     }
 }
