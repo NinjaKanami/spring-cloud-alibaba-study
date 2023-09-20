@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>spring-cloud-alibaba-nacos01</artifactId>
+    <artifactId>spring-cloud-alibaba-study</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-alibaba-nacos01</name>
-    <description>spring-cloud-alibaba-nacos01</description>
+    <name>spring-cloud-alibaba-study</name>
+    <description>spring-cloud-alibaba-study</description>
     <modules>
         <module>nacos-provider01</module>
         <module>nacos-consumer01</module>
@@ -84,7 +84,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.example.springcloudalibabanacos01.SpringCloudAlibabaNacos01Application</mainClass>
+                    <mainClass>com.example.springcloudalibabastudy.SpringCloudAlibabaStudyApplication</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>
